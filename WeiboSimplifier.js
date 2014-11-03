@@ -15,5 +15,17 @@ if (window.top === window) {
       document.body.querySelector(".WB_frame").style.backgroundColor = "white";
       document.body.querySelector(".WB_main_c").style.width = "100%";
       document.body.querySelector("#plc_main").style.width = "100%";
+
+      var cards = document.querySelectorAll(".WB_cardwrap");
+      for (var i = 0; i < cards.length; i++) {
+          if (cards[i].getAttribute("feedtype") == "ad") {
+              cards[i].remove();
+              continue;
+          }
+          if (cards[i].getAttribute("node-type") == "feed_spread") {
+              cards[i].remove();
+              continue;
+          }
+      }
   }, 1000);
 }
